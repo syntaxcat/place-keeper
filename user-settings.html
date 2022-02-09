@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user-settings</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="onInit()">
+    <h1>user-settings</h1>
+    <a href="index.html">BACK TO INDEX</a>
+
+    <form onsubmit="onSave(event)">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" placeholder="email" required="required">
+        <label for="age">Age</label>
+        <input type="range" name="age" id="age" min="18" max="120" onchange="onShowAge(this.value)">
+        <h3>Colors-</h3>
+        <label for="background-color">Set Background Color</label>
+        <input onchange="onSetBackgroundColor(this.value)" type="color" id="background-color" name="background-color" />
+        <label for="text-color">Set Text Color</label>
+        <input onchange="onSetTextColor(this.value)" type="color" id="text-color" name="text-color" />
+        <button>Go</button>
+        <label for="">Birth Date</label>
+        <input type="date">
+        <label for="">Birth Time</label>
+        <input type="time">
+    </form>
+
+    <script src="/services.js/storageService.js"></script>
+    <script src="/services.js/userService.js"></script>
+    <script src="controllers.js/user-controller.js"></script>
+
+</body>
+</html>
