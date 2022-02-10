@@ -8,12 +8,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>map</h1>
-    
-    <a href="index.html">BACK TO INDEX</a>
+    <header>
+        <nav>
+            <a href="index.html">BACK TO INDEX</a>
+        </nav>
+    </header>
+    <button class="location-btn" onclick="onCurrentLocation()"><img src="/img/location.png" alt="location-icon"></button>
+    <a href="#" onclick="downloadCSV(this)" download="exported-data.csv">
+        <i class="fas fa-file-csv csv-icon"></i>
+        Download Selected Locations
+    </a>
+    <div class="container">
+        <div id="map"></div>
+        <div id="list-locations">
+            <h2>Saved Location</h2>
+            <ul id="locations-names"></ul>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <button onclick="onCloseModal()" class="close">&times;</button>
+            <div class="content">
+                <form onsubmit="onLocationSubmit(event)">
+                    <label for="Name">Location Name:</label>
+                    <input id="Name" name="Name" type="text" placeholder="Name">
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <div id="map"></div>
 
+    <script src="/services.js/storageService.js"></script>
+    <script src="/services.js/utilService.js"></script>
+    <script src="/services.js/mapService.js"></script>
     <script src="/controllers.js/map-controller.js"></script>
     
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOs6H-r4Q-O9it612YFpfWpk92Ch18LgA&callback=initMap"></script>
